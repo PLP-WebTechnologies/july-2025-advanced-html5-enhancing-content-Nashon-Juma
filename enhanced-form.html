@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Enhanced HTML5 form with validation and accessibility features">
+    <title>Enhanced HTML5 Form</title>
+    
+</head>
+<body>
+    <header>
+        <h1>Customer Feedback Form</h1>
+        <p>Please help us improve our services by completing this form</p>
+    </header>
+
+    <main>
+        <section aria-labelledby="form-instructions">
+            <h2 id="form-instructions">Form Instructions</h2>
+            <ul>
+                <li>Fields marked with <span class="required"></span> are required</li>
+                <li>Provide accurate information for better service</li>
+                <li>Form submissions are reviewed within 24 hours</li>
+            </ul>
+        </section>
+
+        <section aria-labelledby="pricing-table">
+            <h2 id="pricing-table">Service Packages</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Package</th>
+                        <th>Features</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Basic</td>
+                        <td>
+                            <ul>
+                                <li>Standard support</li>
+                                <li>Email assistance</li>
+                            </ul>
+                        </td>
+                        <td>$9.99/month</td>
+                    </tr>
+                    <tr>
+                        <td>Premium</td>
+                        <td>
+                            <ul>
+                                <li>24/7 support</li>
+                                <li>Phone assistance</li>
+                                <li>Priority service</li>
+                            </ul>
+                        </td>
+                        <td>$29.99/month</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <form id="feedback-form" action="/submit-feedback" method="post" novalidate>
+            <fieldset>
+                <legend>Personal Information</legend>
+                
+                <label for="fullname" class="required">Full Name:</label>
+                <input type="text" id="fullname" name="fullname" required 
+                       placeholder="John Smith" autocomplete="name"
+                       minlength="2" maxlength="100">
+                
+                <label for="email" class="required">Email:</label>
+                <input type="email" id="email" name="email" required 
+                       placeholder="example@domain.com" autocomplete="email">
+                
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" 
+                       placeholder="123-456-7890" autocomplete="tel"
+                       pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+                
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" 
+                       min="1900-01-01" max="2023-12-31">
+            </fieldset>
+
+            <fieldset>
+                <legend>Feedback Details</legend>
+                
+                <label for="service-type" class="required">Service Type:</label>
+                <select id="service-type" name="service-type" required>
+                    <option value="" disabled selected>Select a service</option>
+                    <option value="technical">Technical Support</option>
+                    <option value="billing">Billing Inquiry</option>
+                    <option value="general">General Feedback</option>
+                    <option value="complaint">Complaint</option>
+                </select>
+                
+                <label>How satisfied are you with our service?</label>
+                <div role="group" aria-labelledby="satisfaction-label">
+                    <span id="satisfaction-label" class="visually-hidden">Satisfaction Rating</span>
+                    <label>
+                        <input type="radio" name="satisfaction" value="5" required> Very Satisfied
+                    </label>
+                    <label>
+                        <input type="radio" name="satisfaction" value="4"> Satisfied
+                    </label>
+                    <label>
+                        <input type="radio" name="satisfaction" value="3"> Neutral
+                    </label>
+                    <label>
+                        <input type="radio" name="satisfaction" value="2"> Dissatisfied
+                    </label>
+                    <label>
+                        <input type="radio" name="satisfaction" value="1"> Very Dissatisfied
+                    </label>
+                </div>
+                
+                <label for="comments">Additional Comments:</label>
+                <textarea id="comments" name="comments" rows="5" 
+                          placeholder="Please provide any additional feedback"></textarea>
+                
+                <label for="file-upload">Upload supporting documents (if any):</label>
+                <input type="file" id="file-upload" name="file-upload" 
+                       accept=".pdf,.doc,.docx,.jpg,.png">
+            </fieldset>
+
+            <fieldset>
+                <legend>Preferences</legend>
+                
+                <label for="newsletter">
+                    <input type="checkbox" id="newsletter" name="newsletter" checked>
+                    Subscribe to our newsletter
+                </label>
+                
+                <label for="contact-method">Preferred Contact Method:</label>
+                <select id="contact-method" name="contact-method">
+                    <option value="email" selected>Email</option>
+                    <option value="phone">Phone</option>
+                    <option value="sms">Text Message</option>
+                </select>
+                
+                <label for="reference-id">Reference ID (if applicable):</label>
+                <input type="text" id="reference-id" name="reference-id" 
+                       readonly value="AUTO-GENERATED-12345">
+            </fieldset>
+
+            <div>
+                <button type="submit">Submit Feedback</button>
+                <button type="reset">Clear Form</button>
+            </div>
+        </form>
+
+        <section aria-labelledby="media-example">
+            <h2 id="media-example">Product Demonstration</h2>
+            <figure>
+                <video width="400" controls>
+                    <source src="product-demo.mp4" type="video/mp4">
+                    Your browser does not support HTML5 video.
+                </video>
+                <figcaption>Our product in action</figcaption>
+            </figure>
+            <audio controls>
+                <source src="customer-testimonial.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Company Name. All rights reserved.</p>
+    </footer>
+</body>
+</html>
